@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="LearnFrench1000.Views.ChooseALanguage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LearnFrench1000.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        
+        <Label Content="Choose a language" HorizontalAlignment="Center"  FontSize="20" Grid.ColumnSpan="5"/>
+
+        <Border Height="220" Width="190" CornerRadius="20" BorderThickness="2" BorderBrush="LightGray" Grid.Row="1" Grid.Column="1">
+            <Button Cursor="Hand" BorderThickness="0" x:Name="FrenchBtn" Click="FrenchBtn_Click" Style="{DynamicResource ChooseALangBt}">
+                <StackPanel>
+                    <Border CornerRadius="10" Margin="20" Height="70" Width="100" >
+                        <Border.Background>
+                            <ImageBrush Stretch="Fill" ImageSource="../Resources/Flag-France.jpg"/>
+                        </Border.Background>
+                    </Border>
+                    <Label Content="French" HorizontalAlignment="Center" FontSize="14"/>
+                </StackPanel>
+            </Button>
+        </Border>
+
+        <Border Height="220" Width="190" CornerRadius="20" BorderThickness="2" BorderBrush="LightGray" Grid.Row="1" Grid.Column="2" >
+            <Button  Cursor="Hand" BorderThickness="0" Style="{DynamicResource ChooseALangBt}">
+                <StackPanel>
+                    <Border CornerRadius="10" Margin="20" Height="70" Width="100" >
+                        <Border.Background>
+                            <ImageBrush Stretch="Fill" ImageSource="../Resources/Flag-Spain.png"/>
+                        </Border.Background>
+                    </Border>
+                    <Label Content="Spanish" HorizontalAlignment="Center" FontSize="14"/>
+                </StackPanel>
+            </Button>
+        </Border>
+
+        <Border Height="220" Width="190" CornerRadius="20" BorderThickness="2" BorderBrush="LightGray" Grid.Row="1" Grid.Column="3">
+            <Button  Cursor="Hand" BorderThickness="0" Style="{DynamicResource ChooseALangBt}" >
+                <StackPanel>
+                    <Border CornerRadius="10" Margin="20" Height="70" Width="100" >
+                        <Border.Background>
+                            <ImageBrush Stretch="Fill" ImageSource="../Resources/Flag-Germany.jpg"/>
+                        </Border.Background>
+                    </Border>
+                    <Label Content="German" HorizontalAlignment="Center" FontSize="14"/>
+                </StackPanel>
+            </Button>
+        </Border>
+
+        
+        
+    </Grid>
+</UserControl>

@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="LearnFrench1000.Views.SetUpSession"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LearnFrench1000.Views" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label Content="Practise French" Grid.Row="0" Grid.ColumnSpan="2"  HorizontalAlignment="Center"  FontSize="20" />
+        <Border CornerRadius="10" Margin="0,0,30,0" Height="50" Width="80" HorizontalAlignment="Right">
+            <Border.Background>
+                <ImageBrush Stretch="Fill" ImageSource="../Resources/Flag-France.jpg"/>
+            </Border.Background>
+        </Border>
+
+        <Border Width="500" Background="Transparent" Cursor="Hand" CornerRadius="20" BorderThickness="2" BorderBrush="LightGray" Grid.Row="1" >
+            <TextBlock TextWrapping="WrapWithOverflow" Width="400" VerticalAlignment="Center" TextAlignment="Center" FontSize="14" Text="Welcome! &#x0a; This app has a collection of the top 1000 most commonly used words in the French language. &#x0a;Click go to start practising them! You will see 10 words to translate, then can review your progress at the end! "/>
+        </Border>
+
+        <Button x:Name="GoBtn" Content="Go!" FontSize="20" Width="250" Height="80" Grid.Row="2" Grid.ColumnSpan="2"  Cursor="Hand" BorderThickness="0"  Click="GoBtn_Click" Style="{DynamicResource ProgressButtonStyle}"/>
+
+    </Grid>
+</UserControl>

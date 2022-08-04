@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="LearnFrench1000.Views.LearningWindow2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LearnFrench1000.Views" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label Content="Translate this French word: " FontSize="17" Margin="30,0,0,0" VerticalAlignment="Center"/>
+        <Label x:Name="FWordLbl" Content="French word" Grid.Row="1" FontSize="16" Margin="30,10,0,0" VerticalAlignment="Center"/>
+
+        <Border BorderThickness="1" BorderBrush="Gray" CornerRadius="10" Padding="2" Margin="30,0,30,0" Grid.Row="2">
+            <xctk:WatermarkTextBox x:Name="AnswerTxt" Watermark="Type the English translation" Text="{Binding Path=Answer, Mode=TwoWay}" BorderThickness="0" Padding="20"/>
+        </Border>
+
+        <!--<Label x:Name="EWordLbl" Grid.Row="1"/>-->
+    </Grid>
+</UserControl>
