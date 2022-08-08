@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="LearnFrench1000.Views.ReviewCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LearnFrench1000.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="130" d:DesignWidth="230">
+    <Grid>
+        <Border Grid.Row = "1" Grid.Column = "1"  CornerRadius = "20" BorderThickness = "1" BorderBrush = "LightGray" Width = "200" Height = "105" Margin = "5" >
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.3*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Label x:Name="ForeginLbl" Content="French word: biglongword"  Margin="0,10,0,0" FontSize="10"/>
+                <Image x:Name="OutcomeImage" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Height="30" Source="../Resources/Correct.png" />
+
+                <Label x:Name="EnglishLbl" Content="Answer: biglongword" Grid.Row="1" Margin="15,5,0,0" FontSize="10"/>
+                <Label x:Name="AnswerLbl" Content="Your answer: biglongword" Grid.Row="2" Margin="15,0,0,0" FontSize="10" />
+            </Grid>
+
+        </Border>
+    </Grid>
+</UserControl>

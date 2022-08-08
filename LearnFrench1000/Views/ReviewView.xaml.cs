@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LearnFrench1000.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,25 @@ namespace LearnFrench1000.Views
     /// </summary>
     public partial class ReviewView : UserControl
     {
-        public ReviewView()
+        public int Size;
+
+        public List<ReviewCard> ReviewCards;
+        public ReviewView(List<Word> allWords, List<Word> currentSessionWords, string language)
         {
             InitializeComponent();
+            ReviewCards = new List<ReviewCard>();
+
+            foreach(Word word in currentSessionWords)
+            {
+                ReviewCard rc = new ReviewCard(word.MostRecentAttempt, language, word.ForeignWord, word.EnglishTranslation, word.MostRecentAnswer);
+                ReviewCards.Add(rc);
+            }
+
+            CardGrid.ItemsSource = ReviewCards;
+            
+
+
+
         }
     }
 }

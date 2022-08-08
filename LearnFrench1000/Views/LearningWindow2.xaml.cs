@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LearnFrench1000.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,16 +44,25 @@ namespace LearnFrench1000.Views
             set { answer = value; }
         }
 
+        private Word word;
+
+        public Word Word
+        {
+            get { return word; }
+            set { word = value; }
+        }
 
 
-        public LearningWindow2(string foreignWord, string englishTranslation)
+        public LearningWindow2(ref Word word)
         {
             InitializeComponent();
             AnswerTxt.DataContext = this;
-            FWord = foreignWord;
-            EWord = englishTranslation;
-            FWordLbl.Content = foreignWord;
+            FWord = word.ForeignWord;
+            EWord = word.EnglishTranslation;
+            FWordLbl.Content = FWord;
+            Word = word;
             //EWordLbl.Content = englishTranslation;
         }
+
     }
 }

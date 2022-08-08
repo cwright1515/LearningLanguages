@@ -54,6 +54,24 @@ namespace LearnFrench1000.Models
             set { percentageCorrect = value; }
         }
 
+        private bool mostRecentAttempt;
+
+        public bool MostRecentAttempt
+        {
+            get { return mostRecentAttempt; }
+            set { mostRecentAttempt = value; }
+        }
+
+        private string mostRecentAnswer;
+
+        public string MostRecentAnswer
+        {
+            get { return mostRecentAnswer; }
+            set { mostRecentAnswer = value; }
+        }
+
+
+
 
 
         #endregion
@@ -63,6 +81,8 @@ namespace LearnFrench1000.Models
             EnglishTranslation = englishTranslation;
             TimesSeen = 0;
             TimesCorrect = 0;
+            MostRecentAttempt = false ;
+            MostRecentAnswer = "";
         }
 
     }

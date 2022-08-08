@@ -47,6 +47,8 @@ namespace LearnFrench1000.Views
             ProgressLbl.Content = $"Progress: {LearningWindowCounter}/10 ";
             ProgressBarValue = 0;
         }
+
+
                    
         private void CheckBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -54,17 +56,26 @@ namespace LearnFrench1000.Views
             // MessageBox.Show(currentLW.FWordLbl.Content.ToString() + "\n Answer: " +  currentLW.EWord + "\n Your answer: " + currentLW.Answer);
             if(currentLW.EWord.Trim( ) == currentLW.Answer.Trim())
             {
+                currentLW.Word.TimesSeen++;
+                currentLW.Word.TimesCorrect++;
+                currentLW.Word.MostRecentAttempt = true;
+                currentLW.Word.MostRecentAnswer = currentLW.AnswerTxt.Text;
                 currentLW.AnswerTxt.Background = new SolidColorBrush(Colors.Green);
             }
             else
             {
+                currentLW.Word.TimesSeen++;
+                currentLW.Word.MostRecentAttempt = false;
                 CorrectAnswerTxt.Content = currentLW.EWord;
+                currentLW.Word.MostRecentAnswer = currentLW.AnswerTxt.Text;
                 CorrectAnswerTxt.Visibility = Visibility.Visible;
                 currentLW.AnswerTxt.Background = new SolidColorBrush(Colors.Red);
             }
 
             ContinueBtn.IsEnabled = true;
         }
+
+
 
         private void ContinueBtn_Click(object sender, RoutedEventArgs e)
         {
