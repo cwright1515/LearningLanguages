@@ -13,7 +13,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Border BorderBrush="#AECBD6" BorderThickness="1" Grid.RowSpan="3" CornerRadius="5">
+        <Border BorderBrush="#4cc8c2" Background="#4cc8c2" Opacity="0.8" BorderThickness="1" Grid.RowSpan="3" CornerRadius="5">
             
         </Border>
         <Label x:Name="ForeignWordLbl" Grid.Row="0" Content="French word : " FontSize="10"/>

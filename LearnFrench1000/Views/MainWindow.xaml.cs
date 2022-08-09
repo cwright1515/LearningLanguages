@@ -38,6 +38,9 @@ namespace LearnFrench1000
             mainController.Serialize();
         }
 
-        
+        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

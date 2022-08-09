@@ -126,21 +126,21 @@ namespace LearnFrench1000.Models
         // When exit, save current main controller to a folder within the project 
         public void Serialize()
         {
-            string saveFilePath = "../../SaveFolder/";
-            try
-            {
-                this.CurrentView = null;
-                Stream s = File.Open(saveFilePath + "SaveData.dat", FileMode.Create, FileAccess.Write, FileShare.Read);
+            //string saveFilePath = "../../SaveFolder/";
+            //try
+            //{
+            //    this.CurrentView = null;
+            //    Stream s = File.Open(saveFilePath + "SaveData.dat", FileMode.Create, FileAccess.Write, FileShare.Read);
 
-                BinaryFormatter binaryFormatter = new BinaryFormatter();
-                binaryFormatter.Serialize(s, this);
+            //    BinaryFormatter binaryFormatter = new BinaryFormatter();
+            //    binaryFormatter.Serialize(s, this);
 
-                s.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
+            //    s.Close();
+            //}
+            //catch (Exception e)
+            //{
+            //    MessageBox.Show(e.Message);
+            //}
         }
 
         // Load 

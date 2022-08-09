@@ -12,11 +12,11 @@
             <RowDefinition Height="0.4*"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Label Content="Translate this French word: " FontSize="17" Margin="30,0,0,0" VerticalAlignment="Center"/>
-        <Label x:Name="FWordLbl" Content="French word" Grid.Row="1" FontSize="16" Margin="30,10,0,0" VerticalAlignment="Center"/>
+        <Label Content="Translate this French word: " Foreground="White" FontSize="17" Margin="30,0,0,0" VerticalAlignment="Center"/>
+        <Label x:Name="FWordLbl" Content="French word" Foreground="White" Grid.Row="1" FontSize="16" Margin="30,10,0,0" VerticalAlignment="Center"/>
 
-        <Border BorderThickness="1" BorderBrush="Gray" CornerRadius="10" Padding="2" Margin="30,0,30,0" Grid.Row="2">
-            <xctk:WatermarkTextBox x:Name="AnswerTxt" Watermark="Type the English translation" Text="{Binding Path=Answer, Mode=TwoWay}" BorderThickness="0" Padding="20"/>
+        <Border BorderThickness="0" BorderBrush="White" CornerRadius="10" Padding="0" Margin="30,0,30,0" Grid.Row="2">
+            <xctk:WatermarkTextBox x:Name="AnswerTxt" BorderBrush="White" Watermark="Type the English translation" Text="{Binding Path=Answer, Mode=TwoWay}" BorderThickness="0" Padding="20"/>
         </Border>
 
         <!--<Label x:Name="EWordLbl" Grid.Row="1"/>-->

@@ -5,21 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LearnFrench1000"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Closed="Window_Closed" >
+        Title="MainWindow" Height="450" Width="800" Closed="Window_Closed" WindowStyle="None">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Rectangle Grid.ColumnSpan="2" Grid.Row="0" Fill="#181736" />
 
-        <Rectangle Opacity="0.2" Grid.ColumnSpan="5" Grid.RowSpan="2">
+        <Rectangle Grid.ColumnSpan="2" Grid.Row="1">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#78A2CC" Offset="0.0" />
-                    <GradientStop Color="#96B9D0" Offset="0.25" />
-                    <GradientStop Color="#AECBD6" Offset="0.5" />
-                    <GradientStop Color="#BFD4DB" Offset="0.75" />
+                    <GradientStop Color="#181736" Offset="0.0" />
+                    <GradientStop Color="#39375d" Offset="0.75" />
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        
-        <ContentControl x:Name="CurrentView" Margin="50" Content="{Binding CurrentView}"/>
+
+        <Grid Grid.RowSpan="2" Grid.Column="1" Margin="0,-380,-550,0" Height="200" Width="300">
+            <Grid.RenderTransform>
+                <RotateTransform Angle="50"/>
+            </Grid.RenderTransform>
+
+            <Border Height="30" Background="#4cc8c2" Width="500" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,40,0,0"/>
+            <Border Height="30" Background="#f86788" Width="500" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,80,0,0"/>
+            <Border Height="30" Background="#181736" Width="500" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,120,0,0"/>
+
+        </Grid>
+
+        <Button x:Name="CloseBtn" Grid.Column="1" Content="X" BorderThickness="0" Background="#60677d" HorizontalAlignment="Right" Width="25" Height="25" Margin="5" VerticalAlignment="Center" Click="CloseBtn_Click"/>
+
+        <ContentControl x:Name="CurrentView" Grid.ColumnSpan="2" Grid.Row="2" Margin="50" Content="{Binding CurrentView}"/>
 
     </Grid>
 </Window>

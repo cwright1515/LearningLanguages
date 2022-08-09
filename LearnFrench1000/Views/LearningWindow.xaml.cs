@@ -63,7 +63,7 @@ namespace LearnFrench1000.Views
                 currentLW.Word.TimesCorrect++;
                 currentLW.Word.MostRecentAttempt = true;
                 currentLW.Word.MostRecentAnswer = currentLW.AnswerTxt.Text;
-                currentLW.AnswerTxt.Background = new SolidColorBrush(Colors.Green);
+                currentLW.AnswerTxt.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#449091"); 
             }
             else
             {
@@ -72,7 +72,7 @@ namespace LearnFrench1000.Views
                 CorrectAnswerTxt.Content = currentLW.EWord;
                 currentLW.Word.MostRecentAnswer = currentLW.AnswerTxt.Text;
                 CorrectAnswerTxt.Visibility = Visibility.Visible;
-                currentLW.AnswerTxt.Background = new SolidColorBrush(Colors.Red);
+                currentLW.AnswerTxt.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#df7292");
             }
 
             

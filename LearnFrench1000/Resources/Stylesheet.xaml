@@ -31,7 +31,7 @@
     
     <Style x:Key="ProgressButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-        <Setter Property="Background" Value="#239155"/>
+        <Setter Property="Background" Value="#42dac5"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="BorderThickness" Value="1"/>
@@ -89,5 +89,4 @@
         </Setter>
     </Style>
 
-    
 </ResourceDictionary>
