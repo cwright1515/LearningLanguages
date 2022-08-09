@@ -50,7 +50,6 @@ namespace LearnFrench1000.Models
 
         public MainController()
         {
-            setUpLanguages();
             CurrentView = new ChooseALanguage(changeFrenchView);
         }
 
@@ -73,17 +72,9 @@ namespace LearnFrench1000.Models
             List<LearningWindow2> windows = new List<LearningWindow2>();
             Language currentLanguage = Languages.Where(l => l.Name == CurrentLanguage).FirstOrDefault();
 
-            CurrentSession = new List<Word>();
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    int wordNumber = GetRandomNumber(0, 999);
+            CurrentSession = new List<Word>(); 
 
-            //    string fword = currentLanguage.Words[wordNumber].ForeignWord;
-            //    string eword = currentLanguage.Words[wordNumber].EnglishTranslation;
-
-            //    windows.Add(new LearningWindow2(fword, eword));
-            //}
-
+            // remove next 3 lines and change i in loop to 0 for release
             Word firstWord = currentLanguage.Words[0];
             CurrentSession.Add(firstWord);
             windows.Add(new LearningWindow2(ref firstWord));
@@ -99,7 +90,7 @@ namespace LearnFrench1000.Models
                 windows.Add(new LearningWindow2(ref sessionWord));
             }
 
-            CurrentView = new LearningWindow(windows, ReviewView);
+            CurrentView = new LearningWindow(windows, ReviewView, FinishSession);
 
         }
 
@@ -126,21 +117,21 @@ namespace LearnFrench1000.Models
         // When exit, save current main controller to a folder within the project 
         public void Serialize()
         {
-            //string saveFilePath = "../../SaveFolder/";
-            //try
-            //{
-            //    this.CurrentView = null;
-            //    Stream s = File.Open(saveFilePath + "SaveData.dat", FileMode.Create, FileAccess.Write, FileShare.Read);
+            string saveFilePath = "../../SaveFolder/";
+            try
+            {
+                this.CurrentView = null;
+                Stream s = File.Open(saveFilePath + "SaveData.dat", FileMode.Create, FileAccess.Write, FileShare.Read);
 
-            //    BinaryFormatter binaryFormatter = new BinaryFormatter();
-            //    binaryFormatter.Serialize(s, this);
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+                binaryFormatter.Serialize(s, this);
 
-            //    s.Close();
-            //}
-            //catch (Exception e)
-            //{
-            //    MessageBox.Show(e.Message);
-            //}
+                s.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         // Load 
@@ -163,7 +154,9 @@ namespace LearnFrench1000.Models
                 }
                 else
                 {
-                    return new MainController();
+                    MainController mc = new MainController();
+                    mc.setUpLanguages();
+                    return mc;
                 }
             }
             catch (Exception e)

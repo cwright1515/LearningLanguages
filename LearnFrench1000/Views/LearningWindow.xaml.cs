@@ -25,6 +25,7 @@ namespace LearnFrench1000.Views
         List<LearningWindow2> LearningWindows;
         int LearningWindowCounter;
         Action ReviewView;
+        Action FinishSession; 
 
         private double progressBarValue;
 
@@ -34,11 +35,11 @@ namespace LearnFrench1000.Views
             set { progressBarValue = value; }
         }
 
-
-        public LearningWindow(List<LearningWindow2> learningWindows, Action reviewView)
+        public LearningWindow(List<LearningWindow2> learningWindows, Action reviewView, Action finishSession)
         {
             InitializeComponent();
             ReviewView = reviewView;
+            FinishSession = finishSession;
 
             LearningWindows = learningWindows;
             LearningWindowCounter = 0;
@@ -104,6 +105,11 @@ namespace LearnFrench1000.Views
             {
                 ReviewView();
             }
+        }
+
+        private void QuitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FinishSession();
         }
     }
 }

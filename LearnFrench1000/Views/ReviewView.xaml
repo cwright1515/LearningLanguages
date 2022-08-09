@@ -16,11 +16,11 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Label Content="Review session: " Grid.Row="0" Grid.ColumnSpan="5" HorizontalAlignment="Center"  FontSize="20" />
+        <Label Content="Review session: " Grid.Row="0" Grid.ColumnSpan="5" HorizontalAlignment="Center" Foreground="White" FontSize="20" />
 
         
 
-        <ListBox x:Name="CardGrid" Grid.Row="1" Grid.RowSpan="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  BorderThickness="0" >
+        <ListBox x:Name="CardGrid" Grid.Row="1" Grid.RowSpan="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderThickness="0" >
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid HorizontalAlignment="Center" Rows="3" Columns="3" Width="670" />

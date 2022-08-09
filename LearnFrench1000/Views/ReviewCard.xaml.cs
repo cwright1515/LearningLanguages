@@ -24,7 +24,7 @@ namespace LearnFrench1000.Views
         {
             InitializeComponent();
             setImage(correct);
-            ForeginLbl.Content = $"{language} word:";
+            ForeginLbl.Content = $"{language} word: {fword}";
             EnglishLbl.Content = $"English translation: {eword}";
             AnswerLbl.Content = $"Your answer: {answer}";
         }

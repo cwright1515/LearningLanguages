@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="130" d:DesignWidth="230">
     <Grid>
-        <Border Grid.Row = "1" Grid.Column = "1"  CornerRadius = "20" BorderThickness = "1" BorderBrush = "LightGray" Width = "200" Height = "105" Margin = "5" >
+        <Border Grid.Row = "1" Grid.Column = "1" Background="White" CornerRadius = "20" BorderThickness = "1" BorderBrush = "LightGray" Width = "200" Height = "105" Margin = "5" >
 
             <Grid>
                 <Grid.RowDefinitions>

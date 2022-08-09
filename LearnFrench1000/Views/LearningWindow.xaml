@@ -23,7 +23,8 @@
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,15,0,0">
             <Label x:Name="ProgressLbl" Foreground="White" Height="40" Width="150" Content="Progress : " HorizontalAlignment="Left" FontSize="14" Margin="35,0,0,0"/>
-            <ProgressBar x:Name="ProgressBar" Height="30" Width="460" Background="#fafafa" Foreground="#42dac5" Minimum="0" Maximum="100"/>
+            <ProgressBar x:Name="ProgressBar" Height="30" Width="350" Background="#fafafa" Foreground="#42dac5" Minimum="0" Maximum="100"/>
+            <Button x:Name="QuitBtn" Content="Quit" Width="95" Height="30" Style="{DynamicResource ProgressButtonStyle}" Background="#f86788" Margin="15,0,0,0" Click="QuitBtn_Click"/>
         </StackPanel>
         
     </Grid>
