@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LearnFrench1000.Models
 {
+    [Serializable]
     public class Word
     {
         #region Attributes

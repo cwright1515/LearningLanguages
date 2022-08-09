@@ -172,6 +172,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="SaveFolder\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>

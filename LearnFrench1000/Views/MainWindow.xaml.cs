@@ -2,7 +2,9 @@
 using LearnFrench1000.Scrapers;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,7 +29,15 @@ namespace LearnFrench1000
         {
             InitializeComponent();
             mainController = new MainController();
+            mainController = mainController.Load();
             CurrentView.DataContext = mainController;
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            mainController.Serialize();
+        }
+
+        
     }
 }

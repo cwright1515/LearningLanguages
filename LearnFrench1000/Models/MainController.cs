@@ -2,12 +2,16 @@
 using LearnFrench1000.Views;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace LearnFrench1000.Models
 {
+    [Serializable]
     public class MainController : ObservableObject
     {
         private List<Language> languages;
@@ -79,7 +83,12 @@ namespace LearnFrench1000.Models
 
             //    windows.Add(new LearningWindow2(fword, eword));
             //}
-            for (int i = 0; i < 10; i++)
+
+            Word firstWord = currentLanguage.Words[0];
+            CurrentSession.Add(firstWord);
+            windows.Add(new LearningWindow2(ref firstWord));
+
+            for (int i = 1; i < 10; i++)
             {
                 int wordNumber = GetRandomNumber(0, 999);
                 
@@ -104,6 +113,67 @@ namespace LearnFrench1000.Models
             Language currentLanguage = Languages.Where(l => l.Name == CurrentLanguage).FirstOrDefault();
             CurrentView = new ReviewView(currentLanguage.Words, CurrentSession, CurrentLanguage, FinishSession);
         }
+
+
+
+
+
+
+
+
+
+        // Save 
+        // When exit, save current main controller to a folder within the project 
+        public void Serialize()
+        {
+            string saveFilePath = "../../SaveFolder/";
+            try
+            {
+                this.CurrentView = null;
+                Stream s = File.Open(saveFilePath + "SaveData.dat", FileMode.Create, FileAccess.Write, FileShare.Read);
+
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+                binaryFormatter.Serialize(s, this);
+
+                s.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        // Load 
+        // When opened, check the save location for a .dat file - if present, load that as the controller ( and don't scrape !)
+        // and if not then make a new controller as usual
+        public MainController Load()
+        {
+            string saveFilePath = "../../SaveFolder/";
+            try
+            {
+                string[] fileEntries = Directory.GetFiles(saveFilePath);
+                if (fileEntries.Contains("../../SaveFolder/SaveData.dat"))
+                {
+                    string loadFilePath = saveFilePath + "SaveData.dat";
+                    Stream s = new FileStream(loadFilePath, FileMode.Open, FileAccess.Read);
+                    BinaryFormatter binaryFormatter = new BinaryFormatter();
+                    MainController loadedController = (MainController)binaryFormatter.Deserialize(s);
+                    loadedController.CurrentView = new ChooseALanguage(loadedController.changeFrenchView);
+                    return loadedController;
+                }
+                else
+                {
+                    return new MainController();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
+        }
+
+
 
         #region Random number stuff
         private static readonly Random getrandom = new Random();
