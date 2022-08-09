@@ -26,7 +26,7 @@
 
         <!--Start session-->
 
-        <Label Content="Practise French" Foreground="White" Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Center"  FontSize="20" Margin="0,0,50,0"/>
+        <Label Content="Practice French" Foreground="White" Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Center"  FontSize="20" Margin="0,0,50,0"/>
        
 
         <!--<Border Grid.Column="1" Width="400" Background="Transparent" Cursor="Hand" CornerRadius="20" BorderThickness="2" BorderBrush="LightGray" Grid.Row="1" >-->
