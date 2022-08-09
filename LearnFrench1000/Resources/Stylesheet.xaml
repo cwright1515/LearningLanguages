@@ -80,7 +80,7 @@
                             <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Background" TargetName="border" Value="#a0deb0"/>
+                            <Setter Property="Background" TargetName="border" Value="#AECBD6"/>
                             <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -89,4 +89,5 @@
         </Setter>
     </Style>
 
+    
 </ResourceDictionary>

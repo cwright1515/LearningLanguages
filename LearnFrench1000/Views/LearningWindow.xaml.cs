@@ -44,7 +44,7 @@ namespace LearnFrench1000.Views
             LearningWindowCounter = 0;
             LearningWindowControl.Content = LearningWindows[LearningWindowCounter];
 
-            ProgressLbl.Content = $"Progress: {LearningWindowCounter}/10 ";
+            ProgressLbl.Content = $"Progress: {LearningWindowCounter}/9 ";
             ProgressBarValue = 0;
         }
 
@@ -52,7 +52,10 @@ namespace LearnFrench1000.Views
                    
         private void CheckBtn_Click(object sender, RoutedEventArgs e)
         {
+
             LearningWindow2 currentLW = LearningWindows[LearningWindowCounter];
+            CheckBtn.Focus();
+
             // MessageBox.Show(currentLW.FWordLbl.Content.ToString() + "\n Answer: " +  currentLW.EWord + "\n Your answer: " + currentLW.Answer);
             if(currentLW.EWord.Trim( ) == currentLW.Answer.Trim())
             {
@@ -72,7 +75,11 @@ namespace LearnFrench1000.Views
                 currentLW.AnswerTxt.Background = new SolidColorBrush(Colors.Red);
             }
 
+            
             ContinueBtn.IsEnabled = true;
+            ContinueBtn.IsDefault = true;
+            CheckBtn.IsDefault = false;
+            ContinueBtn.Focus();
         }
 
 
@@ -83,11 +90,15 @@ namespace LearnFrench1000.Views
             {
                 CorrectAnswerTxt.Visibility = Visibility.Hidden;
                 ContinueBtn.IsEnabled = false;
+                ContinueBtn.IsDefault = false;
+                CheckBtn.IsDefault = true;
+
                 LearningWindowCounter++;
                 LearningWindowControl.Content = LearningWindows[LearningWindowCounter];
 
                 ProgressBar.Value = (double)LearningWindowCounter / (double)10 * (double)100;
                 ProgressLbl.Content = $"Progress: {LearningWindowCounter}/10 ";
+                LearningWindows[LearningWindowCounter].AnswerTxt.Focus();
             }
             else
             {

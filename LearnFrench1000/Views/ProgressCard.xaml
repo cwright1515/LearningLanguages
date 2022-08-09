@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="LearnFrench1000.Views.ProgressCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LearnFrench1000.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="60" d:DesignWidth="150">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Border BorderBrush="#AECBD6" BorderThickness="1" Grid.RowSpan="3" CornerRadius="5">
+            
+        </Border>
+        <Label x:Name="ForeignWordLbl" Grid.Row="0" Content="French word : " FontSize="10"/>
+        <Label x:Name="TranslationLbl" Grid.Row="1" Content="Translation : " FontSize="10"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="5,0,0,0">
+            <Image Source="../Resources/seen.png" Width="12"/>
+            <Label x:Name="TimesSeenLbl" Content="Times seen" FontSize="10"/>
+            <Image Source="../Resources/progress.png" Width="12"/>
+            <Label x:Name="ProgressLbl" Content="Progress" FontSize="10"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

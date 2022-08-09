@@ -24,9 +24,12 @@ namespace LearnFrench1000.Views
         public int Size;
 
         public List<ReviewCard> ReviewCards;
-        public ReviewView(List<Word> allWords, List<Word> currentSessionWords, string language)
+
+        private Action FinishSession;
+        public ReviewView(List<Word> allWords, List<Word> currentSessionWords, string language, Action finishSession)
         {
             InitializeComponent();
+            FinishSession = finishSession;
             ReviewCards = new List<ReviewCard>();
 
             foreach(Word word in currentSessionWords)
@@ -36,10 +39,11 @@ namespace LearnFrench1000.Views
             }
 
             CardGrid.ItemsSource = ReviewCards;
-            
+        }
 
-
-
+        private void ContinueBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FinishSession();
         }
     }
 }

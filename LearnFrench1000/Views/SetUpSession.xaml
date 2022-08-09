@@ -13,20 +13,29 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="ProgressColumn" Width="80"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Label Content="Practise French" Grid.Row="0" Grid.ColumnSpan="2"  HorizontalAlignment="Center"  FontSize="20" />
-        <Border CornerRadius="10" Margin="0,0,30,0" Height="50" Width="80" HorizontalAlignment="Right">
-            <Border.Background>
-                <ImageBrush Stretch="Fill" ImageSource="../Resources/Flag-France.jpg"/>
-            </Border.Background>
-        </Border>
 
-        <Border Width="500" Background="Transparent" Cursor="Hand" CornerRadius="20" BorderThickness="2" BorderBrush="LightGray" Grid.Row="1" >
-            <TextBlock TextWrapping="WrapWithOverflow" Width="400" VerticalAlignment="Center" TextAlignment="Center" FontSize="14" Text="Welcome! &#x0a; This app has a collection of the top 1000 most commonly used words in the French language. &#x0a;Click go to start practising them! You will see 10 words to translate, then can review your progress at the end! "/>
-        </Border>
+        <!--Progress-->
+        <Expander x:Name="Expander" Header="Progress "  Grid.Row="0" Grid.RowSpan="3" Expanded="Expander_Expanded" Collapsed="Expander_Collapsed">
+                
+                <ListBox x:Name="ProgressList" Height="270" Margin="0,15,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  BorderThickness="0" />
 
-        <Button x:Name="GoBtn" Content="Go!" FontSize="20" Width="250" Height="80" Grid.Row="2" Grid.ColumnSpan="2"  Cursor="Hand" BorderThickness="0"  Click="GoBtn_Click" Style="{DynamicResource ProgressButtonStyle}"/>
+        </Expander>
+        
+
+
+        <!--Start session-->
+
+        <Label Content="Practise French" Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Center"  FontSize="20" Margin="0,0,50,0"/>
+       
+
+        <!--<Border Grid.Column="1" Width="400" Background="Transparent" Cursor="Hand" CornerRadius="20" BorderThickness="2" BorderBrush="LightGray" Grid.Row="1" >-->
+        <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="WrapWithOverflow" Width="350" VerticalAlignment="Center" Margin="0,0,50,0" TextAlignment="Center" FontSize="14" Text="Welcome! &#x0a;&#x0a;This app has a collection of the top 1000 most commonly used words in the French language. &#x0a;&#x0a;Click go to start practising them! You will see 10 words to translate, then can review your progress at the end! "/>
+        <!--</Border>-->
+
+        <Button Grid.Column="1" x:Name="GoBtn" Content="Go!" FontSize="16" Width="200" Height="50" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0,50,0" Cursor="Hand" BorderThickness="0"  Click="GoBtn_Click" Style="{DynamicResource ProgressButtonStyle}"/>
 
     </Grid>
 </UserControl>

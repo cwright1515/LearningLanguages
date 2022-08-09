@@ -6,6 +6,8 @@
              xmlns:local="clr-namespace:LearnFrench1000.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" >
+
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
@@ -18,11 +20,14 @@
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
+
         
+
+
         <Label Content="Choose a language" HorizontalAlignment="Center"  FontSize="20" Grid.ColumnSpan="5"/>
 
-        <Border Height="220" Width="190" CornerRadius="20" BorderThickness="2" BorderBrush="LightGray" Grid.Row="1" Grid.Column="1">
-            <Button Cursor="Hand" BorderThickness="0" x:Name="FrenchBtn" Click="FrenchBtn_Click" Style="{DynamicResource ChooseALangBt}">
+        <Border Height="220" Width="190" CornerRadius="20" BorderThickness="2" BorderBrush="#f7f7f7" Grid.Row="1" Grid.Column="1">
+            <Button Cursor="Hand" Opacity="0.9" BorderThickness="0" x:Name="FrenchBtn" Click="FrenchBtn_Click" Style="{DynamicResource ChooseALangBt}">
                 <StackPanel>
                     <Border CornerRadius="10" Margin="20" Height="70" Width="100" >
                         <Border.Background>
@@ -34,7 +39,7 @@
             </Button>
         </Border>
 
-        <Border Height="220" Width="190" CornerRadius="20" BorderThickness="2" BorderBrush="LightGray" Grid.Row="1" Grid.Column="2" >
+        <Border Height="220" Width="190" CornerRadius="20" BorderThickness="2" BorderBrush="#f7f7f7" Grid.Row="1" Grid.Column="2" >
             <Button  Cursor="Hand" BorderThickness="0" Style="{DynamicResource ChooseALangBt}">
                 <StackPanel>
                     <Border CornerRadius="10" Margin="20" Height="70" Width="100" >
@@ -47,7 +52,7 @@
             </Button>
         </Border>
 
-        <Border Height="220" Width="190" CornerRadius="20" BorderThickness="2" BorderBrush="LightGray" Grid.Row="1" Grid.Column="3">
+        <Border Height="220" Width="190" CornerRadius="20" BorderThickness="2" BorderBrush="#f7f7f7" Grid.Row="1" Grid.Column="3">
             <Button  Cursor="Hand" BorderThickness="0" Style="{DynamicResource ChooseALangBt}" >
                 <StackPanel>
                     <Border CornerRadius="10" Margin="20" Height="70" Width="100" >

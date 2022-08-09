@@ -59,8 +59,9 @@ namespace LearnFrench1000.Models
 
         private void changeFrenchView()
         {
-            CurrentView = new SetUpSession(startSession);
             CurrentLanguage = "French";
+            Language currentLanguage = Languages.Where(l => l.Name == CurrentLanguage).FirstOrDefault();
+            CurrentView = new SetUpSession(startSession, currentLanguage.Words);
         }
 
         private void startSession()
@@ -93,10 +94,15 @@ namespace LearnFrench1000.Models
 
         }
 
+        private void FinishSession()
+        {
+            changeFrenchView();
+        }
+
         private void ReviewView()
         {
             Language currentLanguage = Languages.Where(l => l.Name == CurrentLanguage).FirstOrDefault();
-            CurrentView = new ReviewView(currentLanguage.Words, CurrentSession, CurrentLanguage);
+            CurrentView = new ReviewView(currentLanguage.Words, CurrentSession, CurrentLanguage, FinishSession);
         }
 
         #region Random number stuff

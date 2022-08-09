@@ -48,7 +48,8 @@ namespace LearnFrench1000.Models
         {
             get 
             {
-                double _correct = TimesCorrect / TimesSeen > 0 ? TimesCorrect / TimesSeen :  0;
+
+                double _correct = TimesSeen > 0 ? TimesCorrect / TimesSeen : 0;
                 return _correct; 
             }
             set { percentageCorrect = value; }

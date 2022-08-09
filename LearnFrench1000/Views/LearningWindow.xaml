@@ -17,7 +17,7 @@
         <Label x:Name="CorrectAnswerTxt" Grid.Row="1" VerticalAlignment="Center" FontSize="14" Margin="30,0,0,0" Visibility="Hidden" Foreground="#239155"/>
         
         <StackPanel Grid.Row="1" Orientation="Horizontal" Width="290" HorizontalAlignment="Right">
-            <Button x:Name="CheckBtn"  Style="{DynamicResource ProgressButtonStyle}" Height="40" Width="120" Content="Check" HorizontalAlignment="Right" Margin="0,0,10,0" Background="#239155" Foreground="White" Click="CheckBtn_Click"/>
+            <Button x:Name="CheckBtn" IsDefault="True"  Style="{DynamicResource ProgressButtonStyle}" Height="40" Width="120" Content="Check" HorizontalAlignment="Right" Margin="0,0,10,0" Background="#239155" Foreground="White" Click="CheckBtn_Click"/>
             <Button x:Name="ContinueBtn" IsEnabled="False" Style="{DynamicResource ProgressButtonStyle}" Height="40" Width="120" Content="Continue" HorizontalAlignment="Right" Background="#239155" Foreground="White" Click="ContinueBtn_Click"/>
         </StackPanel>
 
