@@ -12,7 +12,7 @@
             <RowDefinition Height="0.4*"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Label Content="Translate this French word: " Foreground="White" FontSize="17" Margin="30,0,0,0" VerticalAlignment="Center"/>
+        <Label x:Name="LanguageNameLbl" Foreground="White" FontSize="17" Margin="30,0,0,0" VerticalAlignment="Center"/>
         <Label x:Name="FWordLbl" Content="French word" Foreground="White" Grid.Row="1" FontSize="16" Margin="30,10,0,0" VerticalAlignment="Center"/>
 
         <Border BorderThickness="0" BorderBrush="White" CornerRadius="10" Padding="0" Margin="30,0,30,0" Grid.Row="2">

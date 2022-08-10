@@ -53,9 +53,11 @@ namespace LearnFrench1000.Views
         }
 
 
-        public LearningWindow2(ref Word word)
+        public LearningWindow2(ref Word word, string languageName)
         {
             InitializeComponent();
+            LanguageNameLbl.Content = $"Translate this {languageName} word: ";
+
             AnswerTxt.DataContext = this;
             FWord = word.ForeignWord;
             EWord = word.EnglishTranslation;

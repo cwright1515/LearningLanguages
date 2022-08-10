@@ -40,7 +40,7 @@
         </Border>
 
         <Border Height="220" Width="190" CornerRadius="20" BorderThickness="0" Background="White" BorderBrush="#f7f7f7" Grid.Row="1" Grid.Column="2" >
-            <Button  Cursor="Hand" BorderThickness="0" Style="{DynamicResource ChooseALangBt}">
+            <Button x:Name="SpanishBtn" Cursor="Hand" BorderThickness="0" Style="{DynamicResource ChooseALangBt}" Click="SpanishBtn_Click">
                 <StackPanel>
                     <Border CornerRadius="10" Margin="20" Height="70" Width="100" >
                         <Border.Background>
@@ -53,7 +53,7 @@
         </Border>
 
         <Border Height="220" Width="190" CornerRadius="20" BorderThickness="0" Background="White" BorderBrush="#f7f7f7" Grid.Row="1" Grid.Column="3">
-            <Button  Cursor="Hand" BorderThickness="0"  Style="{DynamicResource ChooseALangBt}" >
+            <Button x:Name="GermanBtn" Cursor="Hand" BorderThickness="0"  Style="{DynamicResource ChooseALangBt}" Click="GermanBtn_Click">
                 <StackPanel>
                     <Border CornerRadius="10" Margin="20" Height="70" Width="100" >
                         <Border.Background>

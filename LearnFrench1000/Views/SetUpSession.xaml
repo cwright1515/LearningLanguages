@@ -18,22 +18,37 @@
         </Grid.ColumnDefinitions>
 
         <!--Progress-->
+        
         <Expander x:Name="Expander" Foreground="White" Header="Progress "  Grid.Row="0" Grid.RowSpan="3" Expanded="Expander_Expanded" Collapsed="Expander_Collapsed">
 
-            <ListBox x:Name="ProgressList" Background="Transparent" Height="270" Margin="0,15,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  BorderThickness="0" />
+            <StackPanel Margin="0,10,0,0">
+                <Label Content="Order by" Foreground="White" FontSize="10"/>
+                <ComboBox x:Name="OrderByCombo" Width="110" HorizontalAlignment="Left" Margin="5,0,0,0" Height="18" FontSize="10" Style="{DynamicResource OrderByComb}" SelectionChanged="OrderByCombo_SelectionChanged">
+                    <ComboBoxItem Content="Times seen asc" />
+                    <ComboBoxItem Content="Times seen desc" />
+                    <ComboBoxItem Content="Progress asc" />
+                    <ComboBoxItem Content="Progress desc" />
+                </ComboBox>
+                
+                <ListBox x:Name="ProgressList" Background="Transparent" Height="220" Margin="0,15,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  BorderThickness="0" />
 
+            </StackPanel>
+            
         </Expander>
 
         <!--Start session-->
 
-        <Label Content="Practice French" Foreground="White" Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Center"  FontSize="20" Margin="0,0,50,0"/>
-       
+        <Label x:Name="PracticeLbl" Foreground="White" Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Center"  FontSize="20" Margin="0,0,50,0"/>
+
 
         <!--<Border Grid.Column="1" Width="400" Background="Transparent" Cursor="Hand" CornerRadius="20" BorderThickness="2" BorderBrush="LightGray" Grid.Row="1" >-->
-        <TextBlock Grid.Column="1" Foreground="White" Grid.Row="1" TextWrapping="WrapWithOverflow" Width="350" VerticalAlignment="Center" Margin="0,0,50,0" TextAlignment="Center" FontSize="14" Text="Welcome! &#x0a;&#x0a;This app has a collection of the top 1000 most commonly used words in the French language. &#x0a;&#x0a;Click go to start practising them! You will see 10 words to translate, then can review your progress at the end! "/>
+        <TextBlock x:Name="DescriptTxt" Grid.Column="1" Foreground="White" Grid.Row="1" TextWrapping="WrapWithOverflow" Width="350" VerticalAlignment="Center" Margin="0,0,50,0" TextAlignment="Center" FontSize="14" />
         <!--</Border>-->
 
         <Button Grid.Column="1" x:Name="GoBtn" Content="Go!" FontSize="16" Width="200" Height="50" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0,50,0" Cursor="Hand" BorderThickness="0"  Click="GoBtn_Click" Style="{DynamicResource ProgressButtonStyle}"/>
+
+        <Button x:Name="BackBtn" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Back" Foreground="White" Background="Transparent" BorderBrush="Transparent" Cursor="Hand" Click="BackBtn_Click"/>
+
 
     </Grid>
 </UserControl>

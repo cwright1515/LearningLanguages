@@ -50,7 +50,7 @@ namespace LearnFrench1000.Models
             get 
             {
 
-                double _correct = TimesSeen > 0 ? TimesCorrect / TimesSeen : 0;
+                double _correct = TimesSeen > 0 ? TimesCorrect / TimesSeen * 100 : 0;
                 return _correct; 
             }
             set { percentageCorrect = value; }
@@ -72,12 +72,19 @@ namespace LearnFrench1000.Models
             set { mostRecentAnswer = value; }
         }
 
+        private List<string> synonyms;
+
+        public List<string> Synonyms
+        {
+            get { return synonyms; }
+            set { synonyms = value; }
+        }
 
 
 
 
         #endregion
-        public Word(string foreignWord, string englishTranslation)
+        public Word(string foreignWord, string englishTranslation, List<string> synonyms)
         {
             ForeignWord = foreignWord;
             EnglishTranslation = englishTranslation;
@@ -85,6 +92,7 @@ namespace LearnFrench1000.Models
             TimesCorrect = 0;
             MostRecentAttempt = false ;
             MostRecentAnswer = "";
+            Synonyms = synonyms;
         }
 
     }

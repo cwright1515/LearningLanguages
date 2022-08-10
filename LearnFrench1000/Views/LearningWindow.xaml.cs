@@ -44,7 +44,7 @@ namespace LearnFrench1000.Views
             LearningWindows = learningWindows;
             LearningWindowCounter = 0;
             LearningWindowControl.Content = LearningWindows[LearningWindowCounter];
-
+               
             ProgressLbl.Content = $"Progress: {LearningWindowCounter}/9 ";
             ProgressBarValue = 0;
         }
@@ -58,7 +58,7 @@ namespace LearnFrench1000.Views
             CheckBtn.Focus();
 
             // MessageBox.Show(currentLW.FWordLbl.Content.ToString() + "\n Answer: " +  currentLW.EWord + "\n Your answer: " + currentLW.Answer);
-            if(currentLW.EWord.Trim( ) == currentLW.Answer.Trim())
+            if(currentLW.EWord.Trim() == currentLW.Answer.Trim() || currentLW.Word.Synonyms.Contains(currentLW.Answer.Trim()) )
             {
                 currentLW.Word.TimesSeen++;
                 currentLW.Word.TimesCorrect++;
@@ -98,7 +98,7 @@ namespace LearnFrench1000.Views
                 LearningWindowControl.Content = LearningWindows[LearningWindowCounter];
 
                 ProgressBar.Value = (double)LearningWindowCounter / (double)10 * (double)100;
-                ProgressLbl.Content = $"Progress: {LearningWindowCounter}/10 ";
+                ProgressLbl.Content = $"Progress: {LearningWindowCounter}/9 ";
                 LearningWindows[LearningWindowCounter].AnswerTxt.Focus();
             }
             else

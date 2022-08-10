@@ -20,16 +20,32 @@ namespace LearnFrench1000.Views
     /// </summary>
     public partial class ChooseALanguage : UserControl
     {
-        Action changeView;
-        public ChooseALanguage(Action method)
+        Action French;
+        Action Spanish;
+        Action German;
+        
+
+        public ChooseALanguage(Action french, Action spanish, Action german)
         {
             InitializeComponent();
-            changeView = method;
+            French = french;
+            Spanish = spanish;
+            German = german;
         }
 
         private void FrenchBtn_Click(object sender, RoutedEventArgs e)
         {
-            changeView();
+            French();
+        }
+
+        private void SpanishBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Spanish();
+        }
+
+        private void GermanBtn_Click(object sender, RoutedEventArgs e)
+        {
+            German();
         }
     }
 }

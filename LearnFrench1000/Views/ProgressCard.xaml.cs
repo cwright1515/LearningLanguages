@@ -21,9 +21,11 @@ namespace LearnFrench1000.Views
     /// </summary>
     public partial class ProgressCard : UserControl
     {
+        public Word Word;
         public ProgressCard(Word word)
         {
             InitializeComponent();
+            Word = word;
 
             ForeignWordLbl.Content = $"French word : {word.ForeignWord}";
             TranslationLbl.Content = $"Translation : {word.EnglishTranslation}";

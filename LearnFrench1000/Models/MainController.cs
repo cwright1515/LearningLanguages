@@ -50,22 +50,29 @@ namespace LearnFrench1000.Models
 
         public MainController()
         {
-            CurrentView = new ChooseALanguage(changeFrenchView);
+            CurrentView = new ChooseALanguage(changeFrenchView, changeSpanishView, changeGermanView);
         }
 
         private void setUpLanguages()
         {
-            List<Word> words = Scraper.scrape();
-            Language French = new Language("French", words);
-            Languages = new List<Language>() { French };
+            Languages = Scraper.scrape(getLanguagesDict());
         }
 
-        private void changeFrenchView()
+        private Dictionary<string, string> getLanguagesDict()
         {
-            CurrentLanguage = "French";
-            Language currentLanguage = Languages.Where(l => l.Name == CurrentLanguage).FirstOrDefault();
-            CurrentView = new SetUpSession(startSession, currentLanguage.Words);
+            Dictionary<string, string> langsDict = new Dictionary<string, string>();
+            langsDict.Add("French", "https://1000mostcommonwords.com/1000-most-common-french-words/");
+            langsDict.Add("Spanish", "https://1000mostcommonwords.com/1000-most-common-spanish-words/");
+            langsDict.Add("German", "https://1000mostcommonwords.com/1000-most-common-german-words/");
+
+            return langsDict;
         }
+
+        private void chooseLanguage()
+        {
+            CurrentView = new ChooseALanguage(changeFrenchView, changeSpanishView, changeGermanView) ;
+        }
+
 
         private void startSession()
         {
@@ -74,28 +81,22 @@ namespace LearnFrench1000.Models
 
             CurrentSession = new List<Word>(); 
 
-            // remove next 3 lines and change i in loop to 0 for release
-            Word firstWord = currentLanguage.Words[0];
-            CurrentSession.Add(firstWord);
-            windows.Add(new LearningWindow2(ref firstWord));
-
-            for (int i = 1; i < 10; i++)
+            for (int i = 0; i < 10; i++)
             {
                 int wordNumber = GetRandomNumber(0, 999);
-                
                 
                 Word sessionWord = currentLanguage.Words[wordNumber];
 
                 CurrentSession.Add(sessionWord);
-                windows.Add(new LearningWindow2(ref sessionWord));
+                windows.Add(new LearningWindow2(ref sessionWord, currentLanguage.Name));
             }
 
-            CurrentView = new LearningWindow(windows, ReviewView, FinishSession);
-
+            CurrentView = new LearningWindow(windows, ReviewView, FinishSession); 
         }
 
         private void FinishSession()
         {
+            // add switch case statement so depending on the language you call a different function
             changeFrenchView();
         }
 
@@ -105,9 +106,26 @@ namespace LearnFrench1000.Models
             CurrentView = new ReviewView(currentLanguage.Words, CurrentSession, CurrentLanguage, FinishSession);
         }
 
+        private void changeFrenchView()
+        {
+            CurrentLanguage = "French";
+            Language currentLanguage = Languages.Where(l => l.Name == CurrentLanguage).FirstOrDefault();
+            CurrentView = new SetUpSession(startSession, currentLanguage, chooseLanguage);
+        }
 
+        private void changeSpanishView()
+        {
+            CurrentLanguage = "Spanish";
+            Language currentLanguage = Languages.Where(l => l.Name == CurrentLanguage).FirstOrDefault();
+            CurrentView = new SetUpSession(startSession, currentLanguage, chooseLanguage);
+        }
 
-
+        private void changeGermanView()
+        {
+            CurrentLanguage = "German";
+            Language currentLanguage = Languages.Where(l => l.Name == CurrentLanguage).FirstOrDefault();
+            CurrentView = new SetUpSession(startSession, currentLanguage, chooseLanguage);
+        }
 
 
 
@@ -149,7 +167,7 @@ namespace LearnFrench1000.Models
                     Stream s = new FileStream(loadFilePath, FileMode.Open, FileAccess.Read);
                     BinaryFormatter binaryFormatter = new BinaryFormatter();
                     MainController loadedController = (MainController)binaryFormatter.Deserialize(s);
-                    loadedController.CurrentView = new ChooseALanguage(loadedController.changeFrenchView);
+                    loadedController.CurrentView = new ChooseALanguage(loadedController.changeFrenchView, loadedController.changeSpanishView, loadedController.changeGermanView);
                     return loadedController;
                 }
                 else
