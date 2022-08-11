@@ -22,10 +22,12 @@ namespace LearnFrench1000.Views
     /// </summary>
     public partial class LearningWindow : UserControl
     {
-        List<LearningWindow2> LearningWindows;
-        int LearningWindowCounter;
-        Action ReviewView;
-        Action FinishSession; 
+        #region Attributes and actions
+
+        private List<LearningWindow2> LearningWindows;
+        private int LearningWindowCounter;
+        private Action ReviewView;
+        private Action FinishSession; 
 
         private double progressBarValue;
 
@@ -35,36 +37,56 @@ namespace LearnFrench1000.Views
             set { progressBarValue = value; }
         }
 
+        #endregion 
+
         public LearningWindow(List<LearningWindow2> learningWindows, Action reviewView, Action finishSession)
         {
             InitializeComponent();
+            // Set up attributes
             ReviewView = reviewView;
             FinishSession = finishSession;
-
             LearningWindows = learningWindows;
+
+            // Set up UI content
             LearningWindowCounter = 0;
             LearningWindowControl.Content = LearningWindows[LearningWindowCounter];
-               
             ProgressLbl.Content = $"Progress: {LearningWindowCounter}/9 ";
             ProgressBarValue = 0;
-        }
-
-
+        } 
                    
         private void CheckBtn_Click(object sender, RoutedEventArgs e)
         {
+            checkAnswer();            
+        } 
 
-            LearningWindow2 currentLW = LearningWindows[LearningWindowCounter];
-            CheckBtn.Focus();
+        private void ContinueBtn_Click(object sender, RoutedEventArgs e)
+        {
+            progress();
+        }
 
-            // MessageBox.Show(currentLW.FWordLbl.Content.ToString() + "\n Answer: " +  currentLW.EWord + "\n Your answer: " + currentLW.Answer);
-            if(currentLW.EWord.Trim() == currentLW.Answer.Trim() || currentLW.Word.Synonyms.Contains(currentLW.Answer.Trim()) )
+        private void QuitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FinishSession();
+        }
+
+
+
+        private void checkAnswer()
+        {
+            LearningWindow2 currentLW = LearningWindows[LearningWindowCounter]; 
+            CheckBtn.Focus(); 
+
+            // Validate answer -- so it doesnt crash if user doesnt input an answer
+            string answer = currentLW.Answer != null ? currentLW.Answer.Trim() : " ";
+            
+
+            if (currentLW.EWord == answer.Trim() || currentLW.Word.Synonyms.Contains(answer))
             {
                 currentLW.Word.TimesSeen++;
                 currentLW.Word.TimesCorrect++;
                 currentLW.Word.MostRecentAttempt = true;
                 currentLW.Word.MostRecentAnswer = currentLW.AnswerTxt.Text;
-                currentLW.AnswerTxt.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#449091"); 
+                currentLW.AnswerTxt.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#449091");
             }
             else
             {
@@ -76,23 +98,16 @@ namespace LearnFrench1000.Views
                 currentLW.AnswerTxt.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#df7292");
             }
 
-            
-            ContinueBtn.IsEnabled = true;
-            ContinueBtn.IsDefault = true;
-            CheckBtn.IsDefault = false;
+            setButtonFocus(true);
             ContinueBtn.Focus();
         }
 
-
-
-        private void ContinueBtn_Click(object sender, RoutedEventArgs e)
+        private void progress()
         {
             if (LearningWindowCounter < 9)
             {
                 CorrectAnswerTxt.Visibility = Visibility.Hidden;
-                ContinueBtn.IsEnabled = false;
-                ContinueBtn.IsDefault = false;
-                CheckBtn.IsDefault = true;
+                setButtonFocus(false);
 
                 LearningWindowCounter++;
                 LearningWindowControl.Content = LearningWindows[LearningWindowCounter];
@@ -107,9 +122,11 @@ namespace LearnFrench1000.Views
             }
         }
 
-        private void QuitBtn_Click(object sender, RoutedEventArgs e)
+        private void setButtonFocus(bool checkOrContinue)
         {
-            FinishSession();
+            ContinueBtn.IsEnabled = checkOrContinue;
+            ContinueBtn.IsDefault = checkOrContinue;
+            CheckBtn.IsDefault = !checkOrContinue;
         }
     }
 }

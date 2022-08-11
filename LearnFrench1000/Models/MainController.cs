@@ -44,9 +44,7 @@ namespace LearnFrench1000.Models
         {
             get { return currentSession; }
             set { currentSession = value; }
-        }
-
-
+        } 
 
         public MainController()
         {
@@ -97,7 +95,18 @@ namespace LearnFrench1000.Models
         private void FinishSession()
         {
             // add switch case statement so depending on the language you call a different function
-            changeFrenchView();
+            switch (CurrentLanguage)
+            {
+                case "French":
+                    changeFrenchView();
+                    break;
+                case "Spanish":
+                    changeSpanishView();
+                    break;
+                case "German":
+                    changeGermanView();
+                    break;
+            }
         }
 
         private void ReviewView()
@@ -128,9 +137,6 @@ namespace LearnFrench1000.Models
         }
 
 
-
-
-
         // Save 
         // When exit, save current main controller to a folder within the project 
         public void Serialize()
@@ -153,8 +159,7 @@ namespace LearnFrench1000.Models
         }
 
         // Load 
-        // When opened, check the save location for a .dat file - if present, load that as the controller ( and don't scrape !)
-        // and if not then make a new controller as usual
+        // When opened, check the save location for a .dat file - if present, load that as the controller ( and don't scrape !) and if not then make a new controller as usual
         public MainController Load()
         {
             string saveFilePath = "../../SaveFolder/";
