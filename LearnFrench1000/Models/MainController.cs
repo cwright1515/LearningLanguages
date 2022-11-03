@@ -60,8 +60,8 @@ namespace LearnFrench1000.Models
         {
             Dictionary<string, string> langsDict = new Dictionary<string, string>();
             langsDict.Add("French", "https://1000mostcommonwords.com/1000-most-common-french-words/");
-            langsDict.Add("Spanish", "https://1000mostcommonwords.com/1000-most-common-spanish-words/");
-            langsDict.Add("German", "https://1000mostcommonwords.com/1000-most-common-german-words/");
+            //langsDict.Add("Spanish", "https://1000mostcommonwords.com/1000-most-common-spanish-words/");
+            //langsDict.Add("German", "https://1000mostcommonwords.com/1000-most-common-german-words/");
 
             return langsDict;
         }
